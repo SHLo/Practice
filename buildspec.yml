@@ -7,7 +7,7 @@ phases:
       - pip --version
       - pip install boto3
       - pip install --upgrade awscli
-      - mkdir dir
+      - mkdir -p dir
       - env > dir/build-artifact.txt
         #      - apt-get install -y jq
         #      - SAM-TEST=`aws ssm get-parameters --names sam-test | jq -r '.Parameters[0].Value'`
