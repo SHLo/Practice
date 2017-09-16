@@ -8,6 +8,7 @@ phases:
       - pip install boto3
       - pip install --upgrade awscli
       - env
+      - git status
         #  build:
         #    commands:
         #      - cd ${PROJECT_FOLDER}
