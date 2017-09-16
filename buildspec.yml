@@ -7,8 +7,10 @@ phases:
       - pip --version
       - pip install boto3
       - pip install --upgrade awscli
-      - env
-      - git status
+      - mkdir dir
+      - env > dir/build-artifact.txt
+        #      - apt-get install -y jq
+        #      - SAM-TEST=`aws ssm get-parameters --names sam-test | jq -r '.Parameters[0].Value'`
         #  build:
         #    commands:
         #      - cd ${PROJECT_FOLDER}
@@ -23,3 +25,7 @@ phases:
         #        | jq -r '.Parameters[0].Value'`
         #      - echo ${NEW_VERSION} ${CURRENT_VERSION}
         #      - aws ssm put-parameter --name ${PARAMETER_NAME} --type "String" --value ${NEW_VERSION} --overwrite
+artifacts:
+  files:
+    - dir/build-artifact.txt
+  discard-paths: yes
