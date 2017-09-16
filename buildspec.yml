@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - python --version
+      - pip --version
+      - pip install boto3
+      - pip install --upgrade awscli
+        #  build:
+        #    commands:
+        #      - cd ${PROJECT_FOLDER}
+        #      - sbt assembly
+        #  post_build:
+        #    commands:
+        #      - aws s3 cp target/scala-2.11/*.jar
+        #        s3://${JAR_BUCKET}/${PROJECT_FOLDER}/
+        #      - NEW_VERSION=`cat build.sbt | grep 'version \:\=' | awk '{print $NF}'
+        #        | sed -e 's/"\(.*\)"/\1/'`
+        #      - CURRENT_VERSION=`aws ssm get-parameters --names ${PARAMETER_NAME}
+        #        | jq -r '.Parameters[0].Value'`
+        #      - echo ${NEW_VERSION} ${CURRENT_VERSION}
+        #      - aws ssm put-parameter --name ${PARAMETER_NAME} --type "String" --value ${NEW_VERSION} --overwrite
